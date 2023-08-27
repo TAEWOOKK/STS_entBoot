@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/STS_entBoot.iml" filepath="$PROJECT_DIR$/.idea/STS_entBoot.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.exam.member.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.exam.member.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/member.iml" filepath="$PROJECT_DIR$/.idea/member.iml" />
     </modules>
   </component>
 </project>
