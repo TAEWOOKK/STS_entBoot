@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="no-js">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,26 +18,23 @@
     <script src="/js/index.js" type="module"></script>
 </head>
 <body class="demo-1 loading">
-<!--<main>
+<main>
     <nav role="navigation">
         <div id="menuToggle">
             <input type="checkbox" /> <span></span> <span></span> <span></span>
             <ul id="menu">
-
-                <c:choose>
-                    <c:when test="${empty sessionScope.loginUser}">
-                        <div class="frame__menu" style="text-align: center;">
-                            <a href="login_form">Login</a>&emsp;&emsp;&emsp;
-                            <a href="signup_form">Sign Up</a>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="frame__menu" style="text-align: center;">
-                            <a class="username" href="mypage">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;
-                            <a href="logout">LOGOUT</a>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
+                <th:block th:if="${loginUser == null}">
+                    <div class="frame__menu" style="text-align: center;">
+                        <a href="login_form">Login</a>&emsp;&emsp;&emsp;
+                        <a href="signup_form">Sign Up</a>
+                    </div>
+                </th:block>
+                <th:block th:if="${loginUser !=null}">
+                    <div class="frame__menu" style="text-align: center;">
+                        <a class="username" href="mypage">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;
+                        <a href="logout">LOGOUT</a>
+                    </div>
+                </th:block>
                 <hr>
                 <li><a href="index">Home</a></li>
                 <li><a href="#">About</a></li>
@@ -57,23 +54,23 @@
     &lt;!&ndash; <nav class="mainlogo"><div class><img src="img/MAIN_LOGO.png"></div></nav> &ndash;&gt;
     <div class="screens" aria-hidden="true">
 
-        <div class="screen__item" style="&#45;&#45;bg-img: url(../img/main_concert.jpg);">
+        <div class="screen__item" style="&#45;&#45;bg-img: url(/img/main_concert.jpg);">
             <div class="screen screen&#45;&#45;full"></div>
             <div class="screen screen&#45;&#45;clip screen&#45;&#45;clip-1"></div>
         </div>
-        <div class="screen__item" style="&#45;&#45;bg-img: url(../img/main_theater.jpg);">
+        <div class="screen__item" style="&#45;&#45;bg-img: url(/img/main_theater.jpg);">
             <div class="screen screen&#45;&#45;full"></div>
             <div class="screen screen&#45;&#45;clip screen&#45;&#45;clip-1"></div>
         </div>
-        <div class="screen__item" style="&#45;&#45;bg-img: url(../img/main_museum.jpg);">
+        <div class="screen__item" style="&#45;&#45;bg-img: url(/img/main_museum.jpg);">
             <div class="screen screen&#45;&#45;full"></div>
             <div class="screen screen&#45;&#45;clip screen&#45;&#45;clip-1"></div>
         </div>
-        <div class="screen__item" style="&#45;&#45;bg-img: url(../img/main_notice.jpg);">
+        <div class="screen__item" style="&#45;&#45;bg-img: url(/img/main_notice.jpg);">
             <div class="screen screen&#45;&#45;full"></div>
             <div class="screen screen&#45;&#45;clip screen&#45;&#45;clip-1"></div>
         </div>
-    </div>-->
+    </div>
     <div class="content">
 
         <nav class="mainlogo">
