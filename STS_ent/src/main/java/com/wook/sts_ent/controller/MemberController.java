@@ -1,4 +1,4 @@
-package com.exam.member.controller;
+package com.wook.sts_ent.controller;
 
 import com.exam.member.dto.MemberDTO;
 import com.exam.member.service.MemberService;
