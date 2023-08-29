@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="header">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,10 +9,10 @@
     <meta name="keywords"
           content="clip-path, animation, scale, effect, background, hover" />
     <meta name="author" content="Codrops" />
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="/img/favicon.png">
     <link rel="stylesheet" href="https://use.typekit.net/cze1cgq.css">
-    <link rel="stylesheet" type="text/css" href="css/base.css" />
-    <script type="text/javascript" src="js/header.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/base.css" />
+    <script type="text/javascript" src="/js/header.js"></script>
     <script
             src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.11/dist/gsap.min.js"></script>
@@ -27,18 +28,14 @@
         <div id="menuToggle">
             <input type="checkbox" /> <span></span> <span></span> <span></span>
             <ul id="menu">
-                <th:block th:if="${loginUser == null}">
-                        <div class="frame__menu" style="text-align: center;">
+                        <div th:if="${loginUser == null}" class="frame__menu" style="text-align: center;">
                             <a href="login_form">Login</a>&emsp;&emsp;&emsp; <a
                                 href="signup_form">Sign Up</a>
                         </div>
-                </th:block>
-                <th:block th:if="${loginUser !=null}">
-                        <div class="frame__menu" style="text-align: center;">
+                        <div th:if="${loginUser !=null}" class="frame__menu" style="text-align: center;">
                             <a class="username" href="mypage">${sessionScope.loginUser.name}(${sessionScope.loginUser.id})</a>&emsp;&emsp;&emsp;
                             <a href="logout">LOGOUT</a>
                         </div>
-                </th:block>>
                 <hr>
                 <li><a href="index">Home</a></li>
                 <li><a href="#">About</a></li>
@@ -86,4 +83,5 @@
     </nav>
 </header>
 </body>
+</th:block>
 </html>

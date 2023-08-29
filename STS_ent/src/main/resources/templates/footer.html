@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="footer">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <link rel="stylesheet" type="text/css" href="/css/footer.css" />
 </head>
 <body>
 <footer class="site-footer">
@@ -10,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div>
-                <img src="img/footer/MAIN_LOGO 2.png" class="flogo"><br>
+                <img src="/img/footer/MAIN_LOGO 2.png" class="flogo"><br>
             </div>
             <div class="col-sm-12 col-md-6">
 
@@ -58,12 +59,13 @@
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="social-icons">
                     <li><a class="github" href="https://github.com/Team-Project3/STS_ent"><img id="ficon" src="img/footer/github_icon.png"></a></li>
-                    <li><a class="twitter" href="#"><img id="ficon" src="img/footer/instagram_icon.png"></a></li>
-                    <li><a class="dribbble" href="#"><img id="ficon" src="img/footer/youtube_icon.png"></a></li>
+                    <li><a class="twitter" href="#"><img id="ficon" src="/img/footer/instagram_icon.png"></a></li>
+                    <li><a class="dribbble" href="#"><img id="ficon" src="/img/footer/youtube_icon.png"></a></li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 </body>
+</th:block>
 </html>

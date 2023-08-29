@@ -1,4 +1,4 @@
-import Screen from "/js/screen.js";
+import Screen from "./screen.js";
 /*import { gsap } from 'gsap';*/
 
 export default class Navigation {

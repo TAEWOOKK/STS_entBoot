@@ -1,4 +1,4 @@
-package com.exam.member.controller;
+package com.wook.sts_ent.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
