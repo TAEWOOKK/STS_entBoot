@@ -1,33 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp"%>
+<div th:replace="header :: header"></div>
 <!DOCTYPE html>
-<html oncontextmenu="return false">
+<html oncontextmenu="return false" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>total_ent_detail</title>
 <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<script src="js/total_ent/total_ent_detail.js"></script>
-<link rel="stylesheet" type="text/css" href="css/total_ent/total_ent_detail.css" />
+<script src="/js/total_ent/total_ent_detail.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/total_ent/total_ent_detail.css" />
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
+
 <body>
 	<div class="thdetail">
 		<div class="thdetail_header">
-			<h1 onclick="location.href='total_ent_main?category=${total_ent.category}'">&ensp;공연&emsp;<${total_ent.tname}></h1><br>
+			<h1 onclick="location.href='total_ent_main?category=${total_ent.category}'">&ensp;공연&emsp;<[[${total_ent.tname}]]></h1><br>
 			<h3>&emsp;${formattedSDate} ~ ${formattedEDate}&emsp;|&emsp;${total_ent.place}</h3><br>
 			<hr>
 		</div>
 		<div class="thdetail_info">
 			<div>
-				<c:if test="${total_ent.category ==1}"><img id="pimg" src="img/concert/${total_ent.pimg}.jpg"></c:if>
-				<c:if test="${total_ent.category ==2}"><img id="pimg" src="img/theater/${total_ent.pimg}.jpg"></c:if>
-				<c:if test="${total_ent.category ==3}"><img id="pimg" src="img/museum/${total_ent.pimg}.jpg"></c:if>
+				<img th:if="${total_ent.category ==1}" id="pimg" src="/img/concert/[[${total_ent.pimg}.jpg]]">
+				<img th:if="${total_ent.category ==2}" id="pimg" src="/img/theater/[[${total_ent.pimg}.jpg]]">
+				<img th:if="${total_ent.category ==3}" id="pimg" src="/img/museum/[[${total_ent.pimg}.jpg]]">
 			</div>
 			<div id="info">
 				<table>
@@ -106,11 +105,11 @@
 	</div>
 		
 	<div class="tab-section" id="review">
-		<%@ include file="../member/review.jsp" %>
+		<div th:replace="/member/review :: review"></div>
 	</div>
 	</div>
 	<div class="footer">
-		<%@ include file="../footer.jsp"%>
 	</div>
 </body>
 </html>
+<div th:replace="footer :: footer"></div>

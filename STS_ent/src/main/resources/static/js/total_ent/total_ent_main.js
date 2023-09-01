@@ -12,6 +12,13 @@ $(document).ready(function() {
     }, 4000);
   }
 
+  function showSlide(index) {
+    for (var i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[index].style.display = "block";
+  }
+
   // 슬라이드 쇼 정지 함수
   function stopSlideShow() {
     clearInterval(interval);
@@ -68,220 +75,89 @@ $(document).ready(function() {
   if (category === "1") {
     slideContainer.innerHTML = `
       <div class="slide slide-1">
-        <img src="img/concert/c슬라이드1.jpg" alt="">
+        <img src="/img/concert/c슬라이드1.jpg" alt="">
       </div>
       <div class="slide slide-2">
-        <img src="img/concert/c슬라이드2.jpg" alt="">
+        <img src="/img/concert/c슬라이드2.jpg" alt="">
       </div>
       <div class="slide slide-3">
-        <img src="img/concert/c슬라이드3.jpg" alt="">
+        <img src="/img/concert/c슬라이드3.jpg" alt="">
       </div>
       <div class="slide slide-4">
-        <img src="img/concert/c슬라이드4.jpg" alt="">
+        <img src="/img/concert/c슬라이드4.jpg" alt="">
       </div>
       <div class="slide slide-5">
-        <img src="img/concert/c슬라이드5.jpg" alt="">
+        <img src="/img/concert/c슬라이드5.jpg" alt="">
       </div>
       <div class="slide slide-6">
-        <img src="img/concert/c슬라이드6.jpg" alt="">
+        <img src="/img/concert/c슬라이드6.jpg" alt="">
       </div>
       <div class="slide slide-7">
-        <img src="img/concert/c슬라이드7.jpg" alt="">
+        <img src="/img/concert/c슬라이드7.jpg" alt="">
       </div>
       <div class="slide slide-8">
-        <img src="img/concert/c슬라이드8.jpg" alt="">
+        <img src="/img/concert/c슬라이드8.jpg" alt="">
       </div>
       <div class="slide slide-9">
-        <img src="img/concert/c슬라이드9.jpg" alt="">
+        <img src="/img/concert/c슬라이드9.jpg" alt="">
       </div>`;
   } else if (category === "2") {
     slideContainer.innerHTML = `
       <div class="slide slide-1">
-        <img src="img/theater/th슬라이드1.jpg" alt="">
+        <img src="/img/theater/th슬라이드1.jpg" alt="">
       </div>
       <div class="slide slide-2">
-        <img src="img/theater/th슬라이드2.jpg" alt="">
+        <img src="/img/theater/th슬라이드2.jpg" alt="">
       </div>
       <div class="slide slide-3">
-        <img src="img/theater/th슬라이드3.jpg" alt="">
+        <img src="/img/theater/th슬라이드3.jpg" alt="">
       </div>
       <div class="slide slide-4">
-        <img src="img/theater/th슬라이드4.jpg" alt="">
+        <img src="/img/theater/th슬라이드4.jpg" alt="">
       </div>
       <div class="slide slide-5">
-        <img src="img/theater/th슬라이드5.jpg" alt="">
+        <img src="/img/theater/th슬라이드5.jpg" alt="">
       </div>
       <div class="slide slide-6">
-        <img src="img/theater/th슬라이드6.jpg" alt="">
+        <img src="/img/theater/th슬라이드6.jpg" alt="">
       </div>
       <div class="slide slide-7">
-        <img src="img/theater/th슬라이드7.jpg" alt="">
+        <img src="/img/theater/th슬라이드7.jpg" alt="">
       </div>
       <div class="slide slide-8">
-        <img src="img/theater/th슬라이드8.jpg" alt="">
+        <img src="/img/theater/th슬라이드8.jpg" alt="">
       </div>
       <div class="slide slide-9">
-        <img src="img/theater/th슬라이드9.jpg" alt="">
+        <img src="/img/theater/th슬라이드9.jpg" alt="">
       </div>`;
   } else if (category === "3") {
     slideContainer.innerHTML = `
       <div class="slide slide-1">
-        <img src="img/museum/m슬라이드1.jpg" alt="">
+        <img src="/img/museum/m슬라이드1.jpg" alt="">
       </div>
       <div class="slide slide-2">
-        <img src="img/museum/m슬라이드2.jpg" alt="">
+        <img src="/img/museum/m슬라이드2.jpg" alt="">
       </div>
       <div class="slide slide-3">
-        <img src="img/museum/m슬라이드3.jpg" alt="">
+        <img src="/img/museum/m슬라이드3.jpg" alt="">
       </div>
       <div class="slide slide-4">
-        <img src="img/museum/m슬라이드4.jpg" alt="">
+        <img src="/img/museum/m슬라이드4.jpg" alt="">
       </div>
       <div class="slide slide-5">
-        <img src="img/museum/m슬라이드5.jpg" alt="">
+        <img src="/img/museum/m슬라이드5.jpg" alt="">
       </div>
       <div class="slide slide-6">
-        <img src="img/museum/m슬라이드6.jpg" alt="">
+        <img src="/img/museum/m슬라이드6.jpg" alt="">
       </div>
       <div class="slide slide-7">
-        <img src="img/museum/m슬라이드7.jpg" alt="">
+        <img src="/img/museum/m슬라이드7.jpg" alt="">
       </div>
       <div class="slide slide-8">
-        <img src="img/museum/m슬라이드8.jpg" alt="">
+        <img src="/img/museum/m슬라이드8.jpg" alt="">
       </div>
       <div class="slide slide-9">
-        <img src="img/museum/m슬라이드9.jpg" alt="">
+        <img src="/img/museum/m슬라이드9.jpg" alt="">
       </div>`;
   }
-
-  showSlide(currentSlide);
-  startSlideShow();
-
-  $('.slider').each(function() {
-    var $this = $(this);
-    var $group = $this.find('.slide-group');
-    var $slides = $this.find('.slide');
-    var buttonArray = [];
-    var currentIndex = 0;
-    var timeout;
-
-    var $nav = $this.find('.slide-nav');
-
-    $nav.find('.prev').on('click', function(event) {
-      event.preventDefault();
-      move(currentIndex - 1);
-      stopSlideShow();
-    });
-
-    $nav.find('.next').on('click', function(event) {
-      event.preventDefault();
-      move(currentIndex + 1);
-      stopSlideShow();
-    });
-
-    function move(newIndex) {
-      var slideWidth = $slides.width();
-      var slideLeft = -slideWidth;
-
-      if ($group.is(':animated') || currentIndex === newIndex) {
-        return;
-      }
-
-      buttonArray[currentIndex].removeClass('active');
-      buttonArray[newIndex].addClass('active');
-
-      if (newIndex > currentIndex) {
-        slideLeft = slideWidth;
-      }
-
-      $slides.eq(newIndex).css({
-        left: slideLeft,
-        display: 'block'
-      });
-
-      $group.animate({ left: -slideLeft }, 500, function() {
-        $slides.eq(currentIndex).css({ display: 'none' });
-        $slides.eq(newIndex).css({ left: 0 });
-        $group.css({ left: 0 });
-        currentIndex = newIndex;
-        startSlideShow();
-      });
-    }
-
-    function advance() {
-      clearTimeout(timeout);
-      timeout = setTimeout(function() {
-        if (currentIndex < $slides.length - 1) {
-          move(currentIndex + 1);
-        } else {
-          move(0);
-        }
-      }, 4000);
-    }
-
-
-    function stopSlideShow() {
-      clearTimeout(timeout);
-    }
-
-    $.each($slides, function(index) {
-      var $button = $('<button type="button" class="slide-btn">&bull;</button>');
-      if (index === currentIndex) {
-        $button.addClass('active');
-      }
-      $button.on('click', function() {
-        move(index);
-        stopSlideShow();
-      }).appendTo('.slide-buttons');
-      buttonArray.push($button);
-    });
-
-    startSlideShow();
-  });
-});
-
-$(document).ready(function() {
-  var slideContainer = document.getElementsByClassName("slide-group")[0];
-  var slides = slideContainer.getElementsByClassName("slide");
-  var currentSlide = 0;
-  var interval;
-
-  function showSlide(index) {
-    for (var i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slides[index].style.display = "block";
-  }
-
-  function showNextSlide() {
-    slides[currentSlide].style.display = "none";
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].style.display = "block";
-  }
-
-  function startSlideShow() {
-    interval = setInterval(showNextSlide, 4000);
-  }
-
-  function stopSlideShow() {
-    clearInterval(interval);
-  }
-
-  showSlide(currentSlide);
-  startSlideShow();
-
-  $('.slider').each(function() {
-    var $nav = $(this).find('.slide-nav');
-    $nav.find('.prev').on('click', function(event) {
-      event.preventDefault();
-      showNextSlide();
-      stopSlideShow();
-    });
-    $nav.find('.next').on('click', function(event) {
-      event.preventDefault();
-      showNextSlide();
-      stopSlideShow();
-    });
-  });
-  
 });
