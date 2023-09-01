@@ -28,29 +28,34 @@
 	<div class="pick">
 		<h1>STS's PICK</h1>
 	</div>
-	<th:block ></th:block>
-	<c:forEach var="total_ent" items="${total_entList}" varStatus="loop">
-		<c:if test="${loop.index % 3 == 0}">
-			<div class="contentmain">
-		</c:if>
-		<a href="total_ent_detail?tseq=${total_ent.tseq}&category=${total_ent.category}" class="contenta">
-			<c:if test="${total_ent.category ==1}">
-				<img class="contentimg" src="img/concert/${total_ent.pimg}.jpg">
-			</c:if>
-			<c:if test="${total_ent.category ==2}">
-				<img class="contentimg" src="img/theater/${total_ent.pimg}.jpg">
-			</c:if>
-			<c:if test="${total_ent.category ==3}">
-				<img class="contentimg" src="img/museum/${total_ent.pimg}.jpg">
-			</c:if>
-			<div class="contentel">
-				<p class="contentp">${total_ent.tname}</p>
-			</div>
-		</a>
-		<c:if test="${loop.index % 3 == 2 || loop.last}">
-			</div>
-		</c:if>
-	</c:forEach>
+
+		<!-- Start the Thymeleaf loop here -->
+		<th:block th:each="total_ent, total_entCount : ${total_entList}">
+
+			<!-- Start a new row if index is divisible by 3 -->
+			<th:block th:if="${total_entCount.index % 3 == 0}" class="row">
+				<div class="contentmain">
+			</th:block>
+
+			<a th:href="@{'total_ent_detail?tseq=' + ${total_ent.tseq} + '&category=' + ${total_ent.category}}" class="contenta">
+				<div th:switch="${total_ent.category}">
+					<img th:case="1" class="contentimg" th:src="@{'/img/concert/' + ${total_ent.pimg} + '.jpg'}">
+					<img th:case="2" class="contentimg" th:src="@{'/img/theater/' + ${total_ent.pimg} + '.jpg'}">
+					<img th:case="3" class="contentimg" th:src="@{'/img/museum/' + ${total_ent.pimg} + '.jpg'}">
+				</div>
+				<div class="contentel">
+					<p class="contentp">[[${total_ent.tname}]]</p>
+				</div>
+			</a>
+
+			<!-- Close the row if index is divisible by 3 or it's the last item -->
+			<th:block th:if="${total_entCount.index % 3 == 2 or total_entCount.last}" th:remove="tag">
+				</div>
+			</th:block>
+
+		</th:block>
+		<!-- End the Thymeleaf loop here -->
+
 </section>
 </body>
 </html>
