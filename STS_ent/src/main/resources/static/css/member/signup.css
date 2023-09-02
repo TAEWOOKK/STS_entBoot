@@ -9,39 +9,39 @@ body {
     overflow: auto;
     height: 1200px;
     background-color:#34333b;
-    overflow-x:hidden; 
 }
 
 #signup * {
-	font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins',sans-serif;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
 }
 
 #signup {
-   height: 920px;
-   width: 40%;
+    height: 866px;
+    width: 40%;
     background-color: rgba(255,255,255,0.13);
-    position: absolute;
+    position: relative;
     transform: translate(-50%,-50%);
-    top: 680px;
+    top: 446px;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 5px 5px;
+    margin-bottom: 123px;
 }
 
 fieldset {
-	margin: 0 auto;
-	width: 90%;
-	margin-top: 30px;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 30px;
 }
 
 input{
-   margin: 0 auto;
+    margin: 0 auto;
     display: block;
     height: 40px;
     width: 98%;
@@ -54,20 +54,20 @@ input{
 }
 
 
-::placeholder, input[type="text"], 
+::placeholder, input[type="text"],
 input[type="password"], input[type="date"] {
-	color: #c8c8c8;
+    color: #c8c8c8;
 }
 
 legend {
-   font-size: 28px;
-   font-weight: bold;
-   color: white;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
 }
 
 label {
-   color: white;
-   font-weight: bold;
+    color: white;
+    font-weight: bold;
 }
 
 button{
@@ -83,18 +83,8 @@ button{
 }
 
 .dup {
-	font-weight:bold; 
-	border-radius: 20px;
-	background-color: #E8F5FF;
-	cursor: pointer;
-}
-
-
-/* footer */
-.footer{
-   position: absolute;
-     bottom: 900;
-     top: 1300px;
-     background-color: #34333b;
-   width: 100%;
+    font-weight:bold;
+    border-radius: 20px;
+    background-color: #E8F5FF;
+    cursor: pointer;
 }

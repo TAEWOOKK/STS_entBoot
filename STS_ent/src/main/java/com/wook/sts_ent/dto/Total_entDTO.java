@@ -2,6 +2,7 @@ package com.wook.sts_ent.dto;
 
 import com.wook.sts_ent.entity.Total_entEntity;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -12,7 +13,9 @@ public class Total_entDTO {
     private String tname;
     private String place;
     private String time;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date sdate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date edate;
     private int price;
     private String seat;

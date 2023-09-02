@@ -19,7 +19,7 @@
 	<div class="thdetail">
 		<div class="thdetail_header">
 			<h1 onclick="location.href='total_ent_main?category=${total_ent.category}'">&ensp;공연&emsp;<[[${total_ent.tname}]]></h1><br>
-			<h3>&emsp;${formattedSDate} ~ ${formattedEDate}&emsp;|&emsp;${total_ent.place}</h3><br>
+			<h3>&emsp;[[${formattedSDate}]] ~ [[${formattedEDate}]]&emsp;|&emsp;[[${total_ent.place}]]</h3><br>
 			<hr>
 		</div>
 
@@ -37,15 +37,15 @@
 					</tr>
 					<tr>
 						<td>공연명</td>
-						<td>${total_ent.tname}</td>
+						<td>[[${total_ent.tname}]]</td>
 					</tr>
 					<tr>
 						<td>장소</td>
-						<td>${total_ent.place}</td>
+						<td>[[${total_ent.place}]]</td>
 					</tr>
 					<tr>
 						<td>가격</td>
-						<td>${total_ent.price}</td>
+						<td>[[${total_ent.price}]]</td>
 					</tr>
 					<tr>
 						<td style="border-bottom: 1px solid white; padding: 40px 0 0 0; height:92px;">
@@ -62,22 +62,22 @@
 				<table id="datetable">
 					<tr>
 						<td>시작날짜</td>
-						<td>${formattedSDate}</td>
+						<td>[[${formattedSDate}]]</td>
 					</tr>
 					<tr>
 						<td>종료날짜</td>
-						<td>${formattedEDate}</td>
+						<td>[[${formattedEDate}]]</td>
 					</tr>
 					<tr>
 						<td>공연시간</td>
-						<td>${total_ent.time}</td>
+						<td>[[${total_ent.time}]]</td>
 					</tr>
 					<tr>
 						<td>
 							총 좌석
 						</td>
 						<td>
-							${seat}
+							[[${seat}]]
 						</td>
 					</tr>
 					<tr>
@@ -90,10 +90,10 @@
 					
 			</div>
 		</div>
-		<input type="hidden" value="${membervo.id}" id="id">
-		<input type="hidden" value="${total_ent.tseq}" id="tseq">
-		<input type="hidden" id="sdate" value="${formattedSDate}">
-		<input type="hidden" id="edate" value="${formattedEDate}">
+		<!--<input type="hidden" th:value="${membervo.id}" id="id">-->
+		<input type="hidden" th:value="${total_ent.tseq}" id="tseq">
+		<input type="hidden" id="sdate" th:value="${formattedSDate}">
+		<input type="hidden" id="edate" th:value="${formattedEDate}">
 		<ul id="tabs">
 			<li><a href="#cimg">공연정보</a></li>
 			<li><a href="#review" onClick="reviewList()">후기</a></li>

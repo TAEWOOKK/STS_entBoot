@@ -16,7 +16,7 @@ body{
 .login_form{
     width: 430px;
     height: 900px;
-    position: absolute;
+    position: relative;
     transform: translate(-50%,-50%);
     left: 50%;
     top: 58%;
@@ -133,13 +133,4 @@ button{
 #naver, #kakao, #google {
 	width: 50px;
 	height: 50px;
-}
-
-/* footer */
-.footer {
-	position: absolute;
-  	bottom: 900;
-  	top: 920px;
-  	background-color: #34333b;
-	width: 100%;
 }

@@ -1,14 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>
+<div th:replace="header :: header"></div>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="shortcut icon" href="img/favicon.ico">
-   <link rel="stylesheet" type="text/css" href="css/member/signup.css" />
-   <script type="text/javascript" src="js/member/member.js"></script>
+   <link rel="shortcut icon" href="/img/favicon.png">
+   <link rel="stylesheet" type="text/css" href="/css/member/signup.css" />
+   <script type="text/javascript" src="/js/member/member.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
@@ -21,7 +19,7 @@
 			<legend>Sign Up</legend><br> 
 		        <label>&emsp;User ID</label>
 		        
-		        <input type="text" maxlength="20" name="id" id="id" value="${id}" size="12" placeholder="아이디">
+		        <input type="text" maxlength="20" name="id" id="id" th:value="${id}" size="12" placeholder="아이디">
 		        <input type="hidden" name="reid" id="reid" value="${reid}">
 		        <input type="button" value="중복 체크" class="dup" onclick="idcheck()"><br>
 		        
@@ -52,8 +50,6 @@
 		</fieldset>		
 	</form>
 </article>
-<div class="footer">
-<%@ include file="../footer.jsp" %>
-</div>
 </body>
 </html>
+<div th:replace="footer :: footer"></div>

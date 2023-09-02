@@ -14,6 +14,7 @@
 	line-height: 24px;
 	color: #737373;
 	border-top: 0.1px solid #c8c8c8;
+	z-index: auto;
 }
 
 .logo-justify {
@@ -21,18 +22,16 @@
 }
 
 .row {
-	width: 100%; 
+	width: 100%;
 	display : flex;
 	justify-content: center;
-	display: flex;
 	margin: 0 auto;
 }
 
 .row2 {
-	width: 100%; 
+	width: 100%;
 	display : flex;
 	justify-content: center;
-	display: flex;
 	margin: 0 auto;
 }
 

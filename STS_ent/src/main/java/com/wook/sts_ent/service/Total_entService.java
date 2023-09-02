@@ -16,8 +16,8 @@ public class Total_entService {
 
     private final Total_entRepository total_entRepository;
 
-    public List<Total_entDTO> findAll(int category){
-        List<Total_entEntity> total_entEntityList = total_entRepository.findAll();
+    public List<Total_entDTO> findByCategory(int category){
+        List<Total_entEntity> total_entEntityList = total_entRepository.findByCategory(category);
         List<Total_entDTO> total_entDTOList = new ArrayList<>();
         for (Total_entEntity total_entEntity : total_entEntityList){
             Total_entDTO total_entDTO = Total_entDTO.tototal_entDTO(total_entEntity);
