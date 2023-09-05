@@ -4,15 +4,21 @@ import com.wook.sts_ent.dto.MemberDTO;
 import com.wook.sts_ent.entity.MemberEntity;
 import com.wook.sts_ent.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class MemberService {
+public class MemberService implements UserDetailsService {
 
     private final MemberRepository memberRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
 
 
     public void insertMember(MemberDTO memberDTO) {
@@ -44,5 +50,24 @@ public class MemberService {
         else {
             return "success";
         }
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+
+        Optional<MemberEntity> memberData = memberRepository.findById(id);
+
+        if(memberData.isPresent()){
+            MemberDTO memberDTO = MemberDTO.toMemberDTO(memberData.get());
+
+            return User.builder()
+                    .username(memberDTO.getId())
+                    .password(passwordEncoder.encode(memberDTO.getPassword()))
+                    .roles("USER")
+                    .build();
+        }
+        return null;
+
+
     }
 }

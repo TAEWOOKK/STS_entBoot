@@ -16,7 +16,7 @@ public class MemberEntity {
     @Column(length = 20)
     private String id;
 
-    @Column(length = 20)
+    @Column(length = 100)
     private String password;
 
     @Column(length = 20)

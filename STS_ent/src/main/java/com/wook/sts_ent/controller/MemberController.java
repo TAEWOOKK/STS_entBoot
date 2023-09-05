@@ -3,6 +3,7 @@ package com.wook.sts_ent.controller;
 import com.wook.sts_ent.dto.MemberDTO;
 import com.wook.sts_ent.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,8 @@ public class MemberController {
 
     @PostMapping("signup")
     public String signup(MemberDTO memberDTO){
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        memberDTO.setPassword(passwordEncoder.encode(memberDTO.getPassword()));
         memberService.insertMember(memberDTO);
 
         return "redirect:login_form";
@@ -46,10 +49,9 @@ public class MemberController {
         return memberService.findByEmail(email);
     }
 
-    @GetMapping("login_form")
+    @GetMapping("/login_form")
     public String loginForm(){
         return "member/login";
     }
 }
 
-    @PostMapping("")
