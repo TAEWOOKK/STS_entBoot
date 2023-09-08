@@ -2,6 +2,7 @@ package com.wook.sts_ent.service;
 
 import com.wook.sts_ent.dto.MemberDTO;
 import com.wook.sts_ent.entity.MemberEntity;
+import com.wook.sts_ent.entity.Total_entEntity;
 import com.wook.sts_ent.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
@@ -53,21 +54,12 @@ public class MemberService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+    public MemberEntity loadUserByUsername(String id) throws UsernameNotFoundException {
+        Optional<MemberEntity> memberEntity = memberRepository.findById(id);
+        System.out.println(memberEntity.orElseThrow(() -> new IllegalArgumentException(id)));
 
-        Optional<MemberEntity> memberData = memberRepository.findById(id);
+        System.out.println(MemberDTO.toMemberDTO(memberEntity.get()));
 
-        if(memberData.isPresent()){
-            MemberDTO memberDTO = MemberDTO.toMemberDTO(memberData.get());
-
-            return User.builder()
-                    .username(memberDTO.getId())
-                    .password(passwordEncoder.encode(memberDTO.getPassword()))
-                    .roles("USER")
-                    .build();
-        }
-        return null;
-
-
+        return memberEntity.orElseThrow(() -> new IllegalArgumentException(id));
     }
 }

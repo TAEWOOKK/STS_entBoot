@@ -22,7 +22,7 @@ public class MemberController {
         return "member/signup";
     }
 
-    @PostMapping("signup")
+    @PostMapping("/signup")
     public String signup(MemberDTO memberDTO){
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         memberDTO.setPassword(passwordEncoder.encode(memberDTO.getPassword()));
@@ -43,9 +43,9 @@ public class MemberController {
     }
 
     @ResponseBody
-    @PostMapping("emailcheck")
+    @PostMapping(value = "/emailcheck", produces = "application/text; charset=utf8")
     public String emailCheck(@RequestParam(name = "email")String email){
-
+        System.out.println(email);
         return memberService.findByEmail(email);
     }
 
