@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @Setter
 @NoArgsConstructor
 @Table(name = "member")
-public class MemberEntity implements UserDetails {
+public class MemberEntity {
     @Id
     @Column(length = 20)
     private String id;
@@ -41,12 +41,6 @@ public class MemberEntity implements UserDetails {
     @Column(length = 40,unique = true)
     private String email;
 
-    @Builder
-    public MemberEntity(String id,String password){
-        this.id = id;
-        this.password = password;
-    }
-
     public static MemberEntity toMemberEntity(MemberDTO memberDTO) {
 
         MemberEntity memberEntity = new MemberEntity();
@@ -58,35 +52,5 @@ public class MemberEntity implements UserDetails {
         memberEntity.setEmail(memberDTO.getEmail());
 
         return  memberEntity;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("user"));
-    }
-
-    @Override
-    public String getUsername() {
-        return this.id;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return false;
     }
 }

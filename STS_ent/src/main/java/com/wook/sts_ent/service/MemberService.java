@@ -16,10 +16,9 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class MemberService implements UserDetailsService {
+public class MemberService {
 
     private final MemberRepository memberRepository;
-    private final BCryptPasswordEncoder passwordEncoder;
 
 
     public void insertMember(MemberDTO memberDTO) {
@@ -53,13 +52,4 @@ public class MemberService implements UserDetailsService {
         }
     }
 
-    @Override
-    public MemberEntity loadUserByUsername(String id) throws UsernameNotFoundException {
-        Optional<MemberEntity> memberEntity = memberRepository.findById(id);
-        System.out.println(memberEntity.orElseThrow(() -> new IllegalArgumentException(id)));
-
-        System.out.println(MemberDTO.toMemberDTO(memberEntity.get()));
-
-        return memberEntity.orElseThrow(() -> new IllegalArgumentException(id));
-    }
 }
