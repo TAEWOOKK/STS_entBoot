@@ -24,8 +24,7 @@ public class MemberController {
 
     @PostMapping("/signup")
     public String signup(MemberDTO memberDTO){
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        memberDTO.setPassword(passwordEncoder.encode(memberDTO.getPassword()));
+
         memberService.insertMember(memberDTO);
 
         return "redirect:login_form";
