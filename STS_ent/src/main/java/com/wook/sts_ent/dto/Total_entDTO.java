@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 @Data
+//develop
 public class Total_entDTO {
     private int tseq;
     private int category;
